@@ -84,6 +84,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import route from '../router/route'
 
 export default {
@@ -94,30 +95,30 @@ export default {
     }
   },
   methods: {
-      readyRender () {
-      let menuModule = [
-          {
-              name: '个人信息',
-              path: '/site/profile'
-          }
-      ]
-      let userModule = [
-          {
-              "name": "系统管理",
-              "path": "sysmanage",
-              "children": [
-                  {
-                      "name": "日志管理",
-                      "path": "/sysmanage/role"
-                  }
-              ]
-          }
-      ]
-      let jsonModule = JSON.parse(JSON.stringify(userModule))
-      for(let i in jsonModule) {
-          menuModule.push(jsonModule[i])
-      }
-      console.log(menuModule)
+    readyRender () {
+        let menuModule = [
+            {
+                name: '个人信息',
+                path: '/site/profile'
+            }
+        ]
+        let userModule = [
+            {
+                "name": "系统管理",
+                "path": "sysmanage",
+                "children": [
+                    {
+                        "name": "日志管理",
+                        "path": "/sysmanage/role"
+                    }
+                ]
+            }
+        ]
+        let jsonModule = JSON.parse(JSON.stringify(userModule))
+        for(let i in jsonModule) {
+            menuModule.push(jsonModule[i])
+        }
+        console.log(menuModule)
     }
   },
   created () {
