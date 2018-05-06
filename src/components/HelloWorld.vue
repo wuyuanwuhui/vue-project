@@ -95,11 +95,31 @@ export default {
     }
   },
   methods: {
+    searchPath (route, name) {
+      for (let i in route) {
+          if(name === route[i].name) {
+            return route[i].path
+          }
+          if (route[i].children !== undefined) {
+              // console.log(route[i].children)
+              return this.searchPath (route[i].children, name)
+          }
+      }
+    },
+    replacePath (route, menuModule) {
+        for (let i in menuModule) {
+          menuModule[i].path = this.searchPath(route, menuModule[i].name)
+          if (menuModule[i].children !== undefined) {
+            this.replacePath(route, menuModule[i].children)
+          }
+        }
+      return menuModule
+    },
     readyRender () {
         let menuModule = [
             {
                 name: '个人信息',
-                path: '/site/profile'
+                path: '/site/hello'
             }
         ]
         let userModule = [
@@ -109,7 +129,11 @@ export default {
                 "children": [
                     {
                         "name": "日志管理",
-                        "path": "/sysmanage/role"
+                        "path": "xxxxx"
+                    },
+                    {
+                        "name": "角色管理",
+                        "path": "bbbbb"
                     }
                 ]
             }
@@ -118,6 +142,8 @@ export default {
         for(let i in jsonModule) {
             menuModule.push(jsonModule[i])
         }
+        // replace real path
+        menuModule = this.replacePath(route, menuModule)
         console.log(menuModule)
     }
   },
