@@ -8,9 +8,13 @@
           href="https://vuejs.org"
           target="_blank"
         >
-          Core Docs
+          Core Docs Hello world
         </a>
       </li>
+      <li>
+        <a href="#">You are testing</a>
+      </li>
+
       <li>
         <a
           href="https://forum.vuejs.org"
@@ -86,6 +90,9 @@
 <script>
 /* eslint-disable */
 import route from '../router/route'
+import axios from 'axios'
+import Vue from 'vue'
+Vue.prototype.$axios= axios
 
 export default {
   name: 'HelloWorld',
@@ -148,7 +155,15 @@ export default {
     }
   },
   created () {
-    this.readyRender()
+    // this.readyRender()
+    console.log('test axios...')
+    axios.get('/api')
+      .then(response => {     //箭头函数
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 }
 </script>
