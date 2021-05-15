@@ -4,6 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 
+import axios from 'axios'
+// Vue.use(axios) // 报错 Uncaught (in promise) TypeError
+Vue.prototype.$http = axios
+axios.defaults.baseURL = process.env.API
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

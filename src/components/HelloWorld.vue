@@ -157,7 +157,7 @@ export default {
   created () {
     // this.readyRender()
     console.log('test axios...')
-    axios.get('/api')
+    axios.get('/site/vue')
       .then(response => {     //箭头函数
         console.log(response);
       })

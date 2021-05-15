@@ -12,10 +12,10 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target: 'http://localhost:8080', //后端api地址
+        target: 'http://local.yii2.front:8080', //后端api地址
         changeOrigin: true,
         pathRewrite:{
-          '^/api': '/'
+          '^/api': ''
         }
       }
     },
