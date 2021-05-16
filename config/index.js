@@ -10,6 +10,7 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
+    // 配置后端接口地址，同时避免跨域问题
     proxyTable: {
       '/api':{
         target: 'http://local.yii2.front:8080', //后端api地址
